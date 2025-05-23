@@ -2,7 +2,15 @@ import { Request, Response, NextFunction } from "express"
 import { catchAsyncError } from "./catcherror"
 
 export const reqdataValidation = catchAsyncError(async (req: Request, res: Response, next: NextFunction) => {
-    const data = req.body.data
+    console.log('req',req.method)
+let data;
+    if(req.method == "GET"){
+     data = req.query
+
+    }if(req.method == "POST"){
+     data = req.body.data
+
+    }
     console.log('111111', data);
 
     if (!data) {

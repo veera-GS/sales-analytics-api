@@ -1,8 +1,11 @@
 import { Request, Response } from 'express';
 import { processCSV } from '../services/csv.service';
+import { catchAsyncError } from '../core/catcherror';
 
-export const uploadAndProcess = async (req: Request, res: Response) => {
+export const uploadAndProcess =catchAsyncError( async (req: Request, res: Response) => {
   try {
+    console.log('request data logs',req.file);
+    
     const file = req.file;
     if (!file) {
       return res.status(400).json({ message: 'CSV file is required' });
@@ -15,4 +18,4 @@ export const uploadAndProcess = async (req: Request, res: Response) => {
     console.error(err);
     res.status(500).json({ message: 'Failed to process CSV', error: err });
   }
-};
+});

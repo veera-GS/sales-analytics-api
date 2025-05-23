@@ -1,8 +1,6 @@
 import dotenv from 'dotenv';
 dotenv.config();
 import { MongoClient } from 'mongodb';
-// const url = 'mongodb://192.168.68.123:27017/testash';
-// const dbname = 'testash';
 let client: MongoClient;
 
 const connectDb = () => {

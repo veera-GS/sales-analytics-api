@@ -7,7 +7,7 @@ export const getTotalCustomers = async (start: Date, end: Date) => {
   const result = await orders.aggregate([
     {
       $match: {
-        dateOfSale: { $gte: start, $lte: end }
+        dateOfSale: { $gte: new Date(start), $lte: new Date(end) }
       }
     },
     {
@@ -19,6 +19,9 @@ export const getTotalCustomers = async (start: Date, end: Date) => {
       $count: "totalCustomers"
     }
   ]).toArray();
+
+  console.log('result',result);
+  
 
   return result[0]?.totalCustomers || 0;
 };
