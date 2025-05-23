@@ -69,3 +69,23 @@ Refresh processed analytics from the most recent CSV file.
 git clone https://github.com/veera-GS/sales-analytics-api.git
 cd sales-analytics-api
 ```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 2. Set environment variables
+
+```bash
+Create a .env file in the root of the project and configure the necessary environment variables (MongoDB URI).
+
+```
+
+### 2. Start the application
+
+```bash
+npm run build
+npm run start
+```
