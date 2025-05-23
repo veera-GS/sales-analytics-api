@@ -26,7 +26,7 @@ Average Order Value
 GET /api/analytics/average-order-value?startDate=2024-01-01&endDate=2024-12-31
 
 1. Clone the repository
-   git clone https://github.com/veera-GS/sales-analytics.git cd
+   git clone https://github.com/veera-GS/sales-analytics-api.git cd
 
 2. Install dependencies
    npm install
