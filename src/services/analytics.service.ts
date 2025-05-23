@@ -31,7 +31,7 @@ export const getTotalOrders = async (start: Date, end: Date) => {
 
   const orders = db.collection('orders');
   const result = await orders.countDocuments({
-    dateOfSale: { $gte: start, $lte: end }
+    dateOfSale: { $gte: new Date(start), $lte: new Date(end) }
   });
   return result;
 };
@@ -43,7 +43,7 @@ export const getAverageOrderValue = async (start: Date, end: Date) => {
   const result = await orders.aggregate([
     {
       $match: {
-        dateOfSale: { $gte: start, $lte: end }
+        dateOfSale: { $gte: new Date(start), $lte: new Date(end) }
       }
     },
     {
