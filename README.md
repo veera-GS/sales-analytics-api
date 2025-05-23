@@ -1,48 +1,71 @@
-This API provides sales analytics functionality, including features for uploading and processing CSV files, refreshing data, and retrieving sales insights such as top products. It supports the following features:
+# 📊 Sales Analytics API
 
-CSV Upload & Data Processing: Upload a CSV file, process it in the background, and trigger data refreshes.
+This API provides a comprehensive **sales analytics** backend with support for uploading and processing CSV files, refreshing data, and retrieving various sales insights, such as top products, total customers, and average order value.
 
-Sales Analytics: Retrieve top products based on different parameters like overall, category, and region.
+---
 
-Data Refresh: Refresh data based on the most recent uploaded CSV file.
+## Features
 
-Table of Contents Features
+- **CSV Upload & Processing**  
+  Upload retail sales data in CSV format and process it in the background.
 
-API Routes
+- **Sales Analytics**  
+  Retrieve key sales insights such as:
 
-Upload CSV
-POST /api/upload
+  - Top products overall
+  - Top products by category
+  - Top products by region
+  - Total customers and orders
+  - Average order value
+
+- **Data Refresh**  
+  Manually trigger a refresh from the most recently uploaded data.
+
+---
+
+## Table of Contents
+
+- [API Routes](#api-routes)
+- [Getting Started](#getting-started)
+- [Environment Variables](#environment-variables)
+- [Running the Application](#running-the-application)
+- [Testing](#testing)
+
+---
+
+## API Routes
+
+### Upload CSV
+
+**POST** `/api/upload`  
 Upload a CSV file of historical retail sales data.
 
-POST /api/refresh
+### Refresh Data
 
-Total Customers
-GET /api/analytics/total-customers?startDate=2024-01-01&endDate=2024-12-31
+**POST** `/api/refresh`  
+Refresh processed analytics from the most recent CSV file.
 
-Total Orders
-GET /api/analytics/total-orders?startDate=2024-01-01&endDate=2024-12-31
+### Total Customers
 
-Average Order Value
-GET /api/analytics/average-order-value?startDate=2024-01-01&endDate=2024-12-31
+**GET** `/api/analytics/total-customers?startDate=YYYY-MM-DD&endDate=YYYY-MM-DD`
 
-1. Clone the repository
-   git clone https://github.com/veera-GS/sales-analytics-api.git cd
+### Total Orders
 
-2. Install dependencies
-   npm install
+**GET** `/api/analytics/total-orders?startDate=YYYY-MM-DD&endDate=YYYY-MM-DD`
 
-3. Set environment variables
-   Create a .env file in the root of the project and configure the necessary environment variables (e.g., MongoDB URI.)
+### Average Order Value
 
-4. Start the application
-   npm run start For local development, the application runs on http://localhost:3000.
+**GET** `/api/analytics/average-order-value?startDate=YYYY-MM-DD&endDate=YYYY-MM-DD`
 
-Testing
-Running Tests You can run the tests for the API using Jest and Supertest. To run the tests:
+> Replace `YYYY-MM-DD` with desired date ranges.
 
-Set up a test environment (Make sure to configure test MongoDB).
+---
 
-Run the tests:
-npm test
+## Getting Started
 
-This will run all the test cases, including those for uploading CSV files and triggering data refresh.
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/veera-GS/sales-analytics-api.git
+cd sales-analytics-api
+```
