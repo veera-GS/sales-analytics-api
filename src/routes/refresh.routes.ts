@@ -7,5 +7,5 @@ const router :any= express.Router();
 
 router.post('/upload', upload.single('file'), uploadAndProcess);
 
-router.post('/refresh', upload.single('file'), refreshData);
+router.post('/refresh', refreshData);
 export default router;
